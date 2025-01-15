@@ -7,6 +7,9 @@ export default defineConfig({
 	define: {
 		"process.env": {},
 	},
+	build: {
+		outDir: "dist", // Ensure the build output is directed to the 'dist' folder
+	},
 	server: {
 		port: 5173,
 		proxy: {
