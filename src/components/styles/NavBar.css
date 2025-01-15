@@ -1,0 +1,30 @@
+.NavBar {
+	background-color: white;
+	border-bottom: 1px lightgray solid;
+	height: 60px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.NavBar-brand {
+	color: rgb(31, 30, 30);
+	margin-left: 12px;
+	font-size: 24px;
+}
+
+.NavBar div {
+	margin-right: 12px;
+}
+
+.NavBar-link {
+	padding: 0px 2px;
+	margin: 0px 6px;
+	color: rgb(153, 149, 149);
+}
+
+.active {
+	color: black;
+	font-weight: bold;
+}

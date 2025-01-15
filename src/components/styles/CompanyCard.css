@@ -1,0 +1,20 @@
+.CompanyCard {
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 3px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+	margin: 10px;
+	padding: 10px;
+}
+
+.CompanyCard-link {
+	color: rgb(50, 43, 43);
+}
+
+.CompanyCard-link:hover {
+	color: rgb(50, 43, 43);
+}
+
+.CompanyCard h3 {
+	margin-top: 0px;
+}
