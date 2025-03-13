@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext"; // AuthContext provides authentication-related data such as current user and token
 import { EasyRFQApi } from "../api/mainApi"; // EasyRFQApi to fetch data from the API (e.g., counts of items, customers, etc.)
 import "./styles/Home.css";
@@ -46,31 +46,27 @@ const LoggedInBodySection = ({ rfqCount, quoteCount, itemCount, customerCount })
 		{/* Displaying counts for different resources (RFQs, Quotes, Items, Customers) */}
 		<div className="Home-loggedIn-divs">
 			<h2>RFQs</h2>
-			{/* Link to the RFQs page with the RFQ count displayed */}
-			<a href="/rfqs" className="rfq-count-link">
+			<NavLink to="/rfqs" className="rfq-count-link">
 				{rfqCount || 0}
-			</a>
+			</NavLink>
 		</div>
 		<div className="Home-loggedIn-divs">
 			<h2>Quotes</h2>
-			{/* Link to the Quotes page with the Quote count displayed */}
-			<a href="/quotes" className="quote-count-link">
+			<NavLink to="/quotes" className="quote-count-link">
 				{quoteCount || 0}
-			</a>
+			</NavLink>
 		</div>
 		<div className="Home-loggedIn-divs">
 			<h2>Inventory Items</h2>
-			{/* Link to the Items page with the Item count displayed */}
-			<a href="/items" className="item-count-link">
+			<NavLink to="/items" className="item-count-link">
 				{itemCount || 0}
-			</a>
+			</NavLink>
 		</div>
 		<div className="Home-loggedIn-divs">
 			<h2>Customers</h2>
-			{/* Link to the Customers page with the Customer count displayed */}
-			<a href="/customers" className="customer-count-link">
+			<NavLink to="/customers" className="customer-count-link">
 				{customerCount || 0}
-			</a>
+			</NavLink>
 		</div>
 	</section>
 );

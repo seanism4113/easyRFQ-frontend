@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "../styles/Footer.css";
 import { FaRegEnvelope, FaRegComment } from "react-icons/fa"; // Importing icons from 'react-icons' library
 
@@ -15,21 +16,21 @@ const NavBar = () => {
 			</div>
 			{/* Section with a contact email link */}
 			<div className="Footer-contact">
-				<a href="#">
+				<NavLink to="#" className="footer-contact-link">
 					<span>
 						<FaRegEnvelope /> {/* Envelope icon representing email */}
 						Contact us
 					</span>
-				</a>
+				</NavLink>
 			</div>
 			{/* Section with a chat option */}
 			<div className="Footer-chat">
-				<a href="#">
+				<NavLink to="#" className="footer-chat-link">
 					<span>
 						<FaRegComment /> {/* Chat bubble icon for live chat */}
 						Chat now
 					</span>
-				</a>
+				</NavLink>
 			</div>
 		</footer>
 	);

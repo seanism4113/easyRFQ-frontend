@@ -82,9 +82,13 @@ const NavLinks = ({ isLoggedIn, toggleSidebar, handleLogout }) => {
 
 					{/* Logout link */}
 					<li>
-						<a href="#" className="NavBar-link" onClick={handleLogout}>
+						<NavLink
+							to="/login" // Redirect to login page after logout
+							className="NavBar-link"
+							onClick={handleLogout}
+						>
 							Logout
-						</a>
+						</NavLink>
 					</li>
 				</>
 			) : (
