@@ -4,7 +4,6 @@
 	font-weight: 400;
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
-	background-image: url("/site-background.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -17,7 +16,7 @@
 
 a {
 	font-weight: 500;
-	color: #646cff;
+	color: rgb(37, 33, 33);
 	text-decoration: inherit;
 }
 
@@ -30,12 +29,32 @@ body {
 	flex-direction: column;
 	margin: 0px;
 	min-width: 320px;
-	flex-grow: 1;
+	min-height: 100vh;
 }
 
 html,
 body {
-	height: 100vh;
+	height: 100%;
+	margin: 0;
+}
+
+.App-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.Main-content {
+	flex-grow: 1;
+}
+
+.Footer {
+	background-color: rgb(245, 245, 245);
+	height: 70px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 }
 
 h1 {
@@ -57,11 +76,6 @@ button {
 
 button:hover {
 	border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {

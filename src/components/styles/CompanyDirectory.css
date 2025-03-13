@@ -1,0 +1,36 @@
+.CompanyDirectory {
+	max-width: 800px;
+	margin: 20px auto;
+	padding: 20px;
+	background: #fff;
+	text-align: center;
+}
+
+.CompanyDirectory h2 {
+	margin-bottom: 20px;
+	color: #333;
+	font-size: 24px;
+}
+
+.CompanyDirectory table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+.CompanyDirectory th,
+.CompanyDirectory td {
+	padding: 12px;
+	border: 1px solid #ddd;
+	text-align: left;
+}
+
+.CompanyDirectory th {
+	background-color: blueviolet;
+	color: white;
+	font-weight: bold;
+}
+
+.CompanyDirectory td {
+	color: #555;
+}

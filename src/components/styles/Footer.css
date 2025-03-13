@@ -1,0 +1,17 @@
+.Footer {
+	background-color: rgb(245, 245, 245);
+	height: 70px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Footer div {
+	padding: 20px;
+	margin-right: 15px;
+}
+
+.Footer-phone {
+	display: flex;
+	flex-direction: column;
+}

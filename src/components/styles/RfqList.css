@@ -1,0 +1,84 @@
+/* Container for the entire RFQ list section */
+.RfqList-container {
+	padding: 20px;
+	max-width: 1200px;
+}
+
+/* Style for loading state text */
+.RfqList-loading {
+	font-size: 16px;
+	color: #888;
+	text-align: center;
+	margin: 20px 0;
+}
+
+/* Style for the RFQ table container */
+.RfqList-table {
+	margin-bottom: 20px;
+	padding: 10px;
+	border-radius: 8px;
+	width: 1400px; /* Ensures the table takes the full width */
+}
+
+/* PageTable - Table container */
+.PageTable {
+	width: 100%;
+	border-collapse: collapse;
+	font-family: Arial, sans-serif;
+	table-layout: fixed; /* Prevent columns from resizing */
+}
+
+/* Table headers */
+.PageTable th {
+	background-color: #4caf50;
+	color: white;
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #ddd;
+	width: 16.6%; /* Fixed width for each column */
+}
+
+/* Table cells */
+.PageTable td {
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #ddd;
+	width: 16.6%; /* Fixed width for each column */
+}
+
+/* "No data found" message */
+.PageTable td[colspan="6"] {
+	text-align: center;
+	font-style: italic;
+	color: #888;
+	padding: 20px;
+}
+
+/* Add New RFQ Button */
+.addRfq-btn {
+	padding: 10px 20px;
+	background-color: lightgrey;
+	border: 1px solid rgb(143, 142, 142);
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	display: block;
+	width: 200px;
+	margin-top: 40px;
+	margin-left: 10px;
+	transition: background-color 0.3s;
+}
+
+.addRfq-btn:hover {
+	background-color: grey;
+	color: white;
+}
+
+/* Adjust button layout for smaller screens */
+@media (max-width: 768px) {
+	.RfqList-container {
+		padding: 15px;
+	}
+}

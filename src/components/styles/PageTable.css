@@ -1,0 +1,114 @@
+.PageTable {
+	border-collapse: collapse;
+	font-family: Arial, sans-serif;
+	table-layout: fixed;
+	width: 1200px !important;
+}
+
+.PageTable-section {
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.PageTable th {
+	background-color: #4caf50;
+	color: white;
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #ddd;
+}
+
+.PageTable td {
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #ddd;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.PageTable td input {
+	width: 100%;
+	max-width: 90%;
+	border: 1px solid #ccc;
+	padding: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.PageTable-link {
+	color: blue;
+	font-weight: bold;
+}
+
+.PageTable-section h2 button {
+	background-color: rgb(210, 210, 245);
+	padding: 10px;
+	width: 220px;
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 100px;
+}
+
+.PageTable th:nth-child(1),
+.PageTable td:nth-child(1) {
+	width: 10%; /* First column */
+}
+
+.PageTable th:nth-child(2),
+.PageTable td:nth-child(2) {
+	width: 20%; /* Second column */
+}
+
+.PageTable th:nth-child(3),
+.PageTable td:nth-child(3) {
+	width: 10%; /* Third column */
+}
+
+.PageTable th:nth-child(4),
+.PageTable td:nth-child(4) {
+	width: 15%; /* Fourth column */
+}
+
+.PageTable th:nth-child(5),
+.PageTable td:nth-child(5) {
+	width: 25%; /* Fifth column */
+}
+
+.PageTable th:nth-child(6),
+.PageTable td:nth-child(6) {
+	width: 10%; /* Sixth column */
+}
+
+.PageTable th:nth-child(7),
+.PageTable td:nth-child(7) {
+	width: 10%; /* 7th column */
+}
+
+.PageTable th:nth-child(8),
+.PageTable td:nth-child(8) {
+	width: 15%; /* 8th column */
+}
+
+.saveButton {
+	background-color: green;
+	color: white;
+}
+
+.editButton {
+	background-color: grey;
+	color: white;
+}
+
+.deleteButton {
+	background-color: rgb(206, 4, 4);
+	color: white;
+}
+
+.cancelButton {
+	border: 1px solid grey;
+}
+
+button {
+	margin-right: 2px;
+	margin-bottom: 2px;
+}

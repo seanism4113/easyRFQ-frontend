@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 /**
- * Component provides a text input and a submit button to allow users to search for data (e.g., companies, jobs).
+ * Component provides a text input and a submit button to allow users to search for data (e.g., customers, jobs).
  * Props:
  * 1. `onSearch` - A function to be called when the user submits a search query.
  * 2. `searchBy` - A placeholder text for input

@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode"; // Utility to decode JSON Web Tokens.
-import { JoblyApi } from "../api/api"; // API wrapper for making backend calls.
+import { EasyRFQApi } from "../api/mainApi"; // API wrapper for making backend calls.
 
 // Create a React Context for authentication.
 const AuthContext = createContext();
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 	const handleTokenChange = () => {
 		if (token) {
 			localStorage.setItem("token", token);
-			JoblyApi.token = token;
+			EasyRFQApi.token = token;
 		} else {
 			localStorage.removeItem("token");
 			setCurrentUser(null);
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
 
 	/**
 	 * Fetch the current user's data from the backend based on the token.
-	 * - Decodes token to extract the username.
+	 * - Decodes token to extract the id.
 	 * - Fetches user data from the API and sets it in the state.
 	 * - If fetching fails, clears the current user.
 	 */
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
 		try {
 			setLoading(true); // Start loading user data.
 			const decodedToken = jwtDecode(token); // Decode the JWT to get user's info.
-			const user = await JoblyApi.getUser(decodedToken.username); // Fetch user data using the API.
+			const user = await EasyRFQApi.getUser(decodedToken.id); // Fetch user data using the API.
 			setCurrentUser(user); // Update the current user state with fetched data.
 		} catch (err) {
 			console.error("Error fetching current user:", err);

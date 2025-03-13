@@ -1,0 +1,152 @@
+/* General Quote Container */
+.quote-container {
+	width: 80%;
+	margin: 0 auto;
+	font-family: Arial, sans-serif;
+}
+
+.quote-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.quote-header-left {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+}
+
+.quote-header-right {
+	text-align: right;
+	display: flex;
+	flex-direction: column;
+}
+
+.quote-header-right h1 {
+	margin-bottom: 10px;
+}
+
+.quote-info {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+
+.quote-info-left,
+.quote-info-right {
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+}
+
+h3 {
+	margin-bottom: 10px;
+}
+
+/* Tables */
+.table {
+	width: 1500px;
+	margin-top: 20px;
+}
+
+table td:nth-child(1) {
+	width: 20%; /* First column */
+}
+
+table td:nth-child(2) {
+	width: 35%; /* Second column */
+}
+
+table td:nth-child(3) {
+	width: 15%; /* Second column */
+}
+
+table td:nth-child(4) {
+	width: 15%; /* Second column */
+}
+
+table td:nth-child(5) {
+	width: 15%; /* Second column */
+}
+
+th {
+	background-color: rgb(7, 145, 99);
+	color: white;
+}
+
+table {
+	width: 750px;
+	border-collapse: collapse;
+}
+
+table,
+th,
+td {
+	border: 1px solid black;
+}
+
+th,
+td {
+	padding: 8px;
+	text-align: left;
+}
+
+.quote-total {
+	margin-top: 20px;
+	text-align: end;
+}
+
+.quote-footer {
+	margin-top: 50px;
+	padding: 10px;
+	border-top: 1px solid #ddd;
+}
+
+.quote-total-table thead tr td {
+	border: none !important;
+}
+
+/* Print Styles */
+@media print {
+	.NavBar,
+	.Footer,
+	.menu_icon_box {
+		display: none !important;
+	}
+
+	/* Optional: Adjust the layout for print */
+	.quote-container {
+		margin-top: 40px;
+		margin-bottom: 0;
+	}
+
+	/* Quote Items Table */
+	.quote-items {
+		width: 100%;
+		margin-top: 20px;
+	}
+
+	/* Adjust Quote Items Table width for printing */
+	.quote-items table,
+	.quote-total-table {
+		width: 100%;
+	}
+}
+
+@page {
+	margin: 0;
+	size: auto;
+}
+
+@media (max-width: 768px) {
+	.quote-info {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.quote-info-left,
+	.quote-info-right {
+		width: 100%;
+	}
+}

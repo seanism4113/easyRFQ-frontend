@@ -1,90 +1,98 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { JoblyApi } from "../../api/api"; // JoblyApi for interacting with the API, specifically for user authentication
-import AuthContext from "../../context/AuthContext"; // AuthContext to manage authentication-related state
+import React, { useState } from "react";
+import useLogin from "../../hooks/useLogin";
+import PasswordToggle from "./PasswordToggle";
+import ResponseMessage from "./ResponseMessage";
 import "../styles/Forms.css";
 
 /**
-
- * Component renders the login form where users can enter their username and password to authenticate.
- * Upon successful authentication, the user is logged in and redirected to the homepage.
+ * Login Component
+ *
+ * This component renders a login form that allows users to enter their email and password
+ * to authenticate. If authentication is successful, the user is logged in and redirected to the homepage.
  */
 
 const Login = () => {
-	// State to manage form data (username and password) for the login form
-	const [formData, setFormData] = useState({ username: "", password: "" });
+	/**
+	 * State management:
+	 * - `formData`: Stores email and password entered by the user.
+	 * - `showPassword`: Boolean flag to toggle password visibility.
+	 */
+	const [formData, setFormData] = useState({ email: "", password: "" });
+	const [showPassword, setShowPassword] = useState(false);
 
-	// State to manage error messages in case of failed login attempt
-	const [error, setError] = useState("");
+	/**
+	 * Extracts the `handleLogin` function, error message, and loading state
+	 * from the `useLogin` custom hook. This hook connects to authentication logic.
+	 */
+	const { handleLogin, error, loading } = useLogin();
 
-	// Access login function and loading state from AuthContext
-	const { login, loading } = useContext(AuthContext);
-
-	const navigate = useNavigate();
-
-	// Handle input field changes
-
+	/**
+	 * Handles input field changes.
+	 *
+	 * @param {object} evt - The event object triggered by user input.
+	 */
 	const handleChange = (evt) => {
-		const { name, value } = evt.target; // Extract name and value from the input element
-		setFormData((data) => ({
-			...data, // Spread the existing form data
-			[name]: value, // Update the respective field in the formData object
+		const { name, value } = evt.target;
+		setFormData((prevData) => ({
+			...prevData,
+			[name]: value,
 		}));
 	};
 
-	// Handle form submission
-
+	/**
+	 * Handles form submission.
+	 *
+	 * @param {object} evt - The event object triggered by form submission.
+	 */
 	const handleSubmit = async (evt) => {
-		evt.preventDefault();
-
-		try {
-			// Call the API to authenticate the user with the provided username and password
-			const { token } = await JoblyApi.authenticateUser(formData.username, formData.password);
-
-			// If authentication is successful, log the user in using the login function from context
-			login(token);
-
-			navigate("/");
-		} catch (err) {
-			console.error("Login failed:", err);
-			setError("Invalid username or password.");
-		}
+		evt.preventDefault(); // Prevents page reload on form submission
+		handleLogin(formData.email, formData.password); // Calls login function
 	};
 
-	// If loading is true, display a loading message
+	// If loading is true, display a loading message instead of the form
 	if (loading) {
 		return <p>Loading...</p>;
 	}
 
 	return (
 		<div className="Form-container">
+			{/* Login Form Header */}
 			<h1 className="Form-header">Login</h1>
+
+			{/* Login Form */}
 			<form onSubmit={handleSubmit}>
-				{" "}
-				{/* Form element with onSubmit handler */}
+				{/* Email input field */}
 				<div>
-					<label htmlFor="username">Username</label>
+					<label htmlFor="email">Email</label>
 					<input
-						id="username"
-						name="username"
-						value={formData.username}
+						id="email"
+						name="email"
+						type="email" // Ensures proper email format
+						value={formData.email}
 						onChange={handleChange} // Update the form data state when user types
-						required
+						required // Makes this field mandatory
 					/>
 				</div>
-				<div>
+
+				{/* Password input field with toggle visibility option */}
+				<div className="password-input-wrapper">
 					<label htmlFor="password">Password</label>
 					<input
 						id="password"
 						name="password"
-						type="password"
+						type={showPassword ? "text" : "password"} // Toggle password visibility
 						value={formData.password}
-						onChange={handleChange} // Update the form data state when user types
+						onChange={handleChange}
 						required
 					/>
+					{/* Password visibility toggle button */}
+					<PasswordToggle showPassword={showPassword} togglePassword={() => setShowPassword((prev) => !prev)} />
 				</div>
-				{/* Show error message if login fails */}
-				{error && <div className="error-message">{error}</div>}
+
+				{/* Display an error message if authentication fails */}
+				<ResponseMessage messageType="error" message={error} />
+
+				{/* Submit button */}
 				<button type="submit">Submit</button>
 			</form>
 		</div>
